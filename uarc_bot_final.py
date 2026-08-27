@@ -15,7 +15,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TOKEN = "8960853556:AAE5jUFQCvEEpkLpxd7gn6yHXZa5dZhqPgM"
+# Read TOKEN from environment variables (Railway)
+TOKEN = os.getenv("TOKEN")
+if not TOKEN:
+    raise ValueError("TOKEN environment variable not set!")
 
 # Image directory - adjust path based on deployment
 IMAGE_DIR = os.path.dirname(os.path.abspath(__file__))
